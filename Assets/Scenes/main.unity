@@ -148,8 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3116a640f402e2468ad27c52f257d84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpawnDelay: 3
-  maxSpawnDelay: 5
+  minSpawnDelay: 10
+  maxSpawnDelay: 20
   gameObjects:
   - {fileID: 4858670701312060244, guid: a1231f582b148d94f896260d13062d67, type: 3}
 --- !u!4 &368104582
@@ -333,8 +333,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3116a640f402e2468ad27c52f257d84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpawnDelay: 3
-  maxSpawnDelay: 5
+  minSpawnDelay: 5
+  maxSpawnDelay: 8
   gameObjects:
   - {fileID: 1113544569443706267, guid: 4445239bd16044e42a36201891d7cc5d, type: 3}
   - {fileID: 1113544569443706267, guid: da953fa5f381af74aab669be89b6c730, type: 3}
@@ -691,6 +691,7 @@ MonoBehaviour:
   JumpForce: 12
   PlayerRigidbody: {fileID: 1341767722}
   PlayerAnimator: {fileID: 1341767718}
+  PlayerCollider: {fileID: 1341767721}
 --- !u!1 &1531907683
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,7 +965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2367cade8f176634cb15185e88c39ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 0.8
+  scrollSpeed: 0.4
   meshRenderer: {fileID: 1770632192}
 --- !u!61 &1770632196
 BoxCollider2D:
