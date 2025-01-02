@@ -22,6 +22,6 @@ public class Spawner : MonoBehaviour
     void Spawn(){
         GameObject randomObject = gameObjects[Random.Range(0, gameObjects.Length)];
         Instantiate(randomObject, transform.position, Quaternion.identity);
-        Invoke("Spawn", Random.Range(minSpawnDelay, maxSpawnDelay));
+        Invoke("Spawn", Random.Range(minSpawnDelay / GameManager.Instance.CalculateGameSpeed(), maxSpawnDelay / GameManager.Instance.CalculateGameSpeed()));
     }
 }
