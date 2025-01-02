@@ -1,5 +1,3 @@
-using TMPro;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -7,14 +5,12 @@ public class Player : MonoBehaviour
     [Header("Settings")]
     public float JumpForce;
 
-
     [Header("References")]
     public Rigidbody2D PlayerRigidbody;
     public Animator PlayerAnimator;
     public Collider2D PlayerCollider;
 
     private bool isGrounded = true;
-    private int lives = 3;
     private bool isInvincible = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -42,22 +38,18 @@ public class Player : MonoBehaviour
         }
     }
 
-    void KillPlayer(){
+    public void KillPlayer(){
         PlayerCollider.enabled = false;
         PlayerAnimator.enabled = false;
         PlayerRigidbody.AddForceY(JumpForce, ForceMode2D.Impulse);
     }
 
     void Hit(){
-        lives -= 1;
-        if (lives == 0)
-        {
-            KillPlayer();
-        }
+        GameManager.Instance.lives -= 1;
     }
 
     void Heal(){
-        lives = Mathf.Min(3, lives + 1);
+        GameManager.Instance.lives = Mathf.Min(3, GameManager.Instance.lives + 1);
     }
 
     void StartInvincible(){
@@ -70,7 +62,7 @@ public class Player : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D collider){
-        if(collider.gameObject.tag == "enemy")
+        if(collider.gameObject.tag is "enemy")
         {
             if (isInvincible)
             {
@@ -82,12 +74,12 @@ public class Player : MonoBehaviour
             }
                 
         }
-        else if(collider.gameObject.tag == "food")
+        else if(collider.gameObject.tag is "food")
         {
             Destroy(collider.gameObject);
             Heal();
         }
-        else if(collider.gameObject.tag == "golden")
+        else if(collider.gameObject.tag is "golden")
         {
             Destroy(collider.gameObject);
             StartInvincible();
